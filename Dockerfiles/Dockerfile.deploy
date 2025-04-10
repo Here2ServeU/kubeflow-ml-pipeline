@@ -1,0 +1,4 @@
+FROM python:3.9-slim
+COPY deploy.py /deploy.py
+RUN pip install pandas kfp
+ENTRYPOINT ["python", "/deploy.py"]
