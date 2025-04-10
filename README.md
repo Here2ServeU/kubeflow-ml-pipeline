@@ -1,6 +1,6 @@
 # Kubeflow ML Pipeline
 
-This repository provides a complete example of an **end-to-end machine learning pipeline** using Kubeflow Pipelines. The pipeline includes **data loading, preprocessing, model training, evaluation, conditional deployment** using **KFServing,** and **CI/CD** integration with **GitHub Actions**.
+This repository provides a complete example of an **end-to-end machine learning pipeline** using **Kubeflow** Pipelines. The pipeline includes **data loading, preprocessing, model training, evaluation, conditional deployment** using **KFServing,** and **CI/CD** integration with **GitHub Actions**.
 
 ## Project Structure and File Descriptions
 
