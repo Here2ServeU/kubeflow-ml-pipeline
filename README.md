@@ -4,7 +4,7 @@ This repository provides a complete example of an end-to-end machine learning pi
 
 ## Project Structure and File Descriptions
 
-### components/
+### The components/ Directory
 
 - **data_load.py**: Loads a dataset (Pima Indians Diabetes Dataset) from a public URL and saves it as a CSV file. This component is the entry point of the pipeline.
 - **preprocess.py**: Reads the raw CSV, scales numerical features using `StandardScaler`, and outputs a preprocessed CSV with features and labels.
@@ -12,12 +12,12 @@ This repository provides a complete example of an end-to-end machine learning pi
 - **evaluate.py**: Loads the trained model and evaluates it on a test set split from the same preprocessed dataset. Outputs evaluation metrics (accuracy) as a JSON file.
 - **deploy.py**: Reads the evaluation metrics and conditionally simulates model deployment if accuracy exceeds a defined threshold (e.g., 0.85). You can integrate KFServing manifest application logic here.
 
-### Dockerfiles/
+### The Dockerfiles/ Directory
 
 - **Dockerfile.train**: Builds the Docker image required for the `train.py` component, installing necessary dependencies like `scikit-learn`, `pandas`, and `joblib`.
 - **Dockerfile.deploy**: Builds the Docker image used for the `deploy.py` component. Installs dependencies including `pandas` and `kfp`.
 
-### pipeline.py
+### The pipeline.py file
 
 Defines the full pipeline using the Kubeflow Pipelines SDK. It connects the components in sequence:
 1. Load data
@@ -33,11 +33,11 @@ python pipeline.py
 
 This generates a `pipeline.yaml` file that can be uploaded to a Kubeflow Pipelines UI or automated with CI/CD.
 
-### kfserving.yaml
+### The kfserving.yaml file
 
 YAML manifest defining a `KFServing InferenceService` resource. This file is used to deploy a trained model (such as a scikit-learn model) as a REST endpoint. Replace the `storageUri` with your actual model location (e.g., S3 bucket or PVC path).
 
-### .github/workflows/kfp-pipeline.yml
+### The .github/workflows/kfp-pipeline.yml file
 
 A GitHub Actions workflow for automating pipeline compilation and upload. On every push to the `main` branch, it:
 1. Checks out the code
@@ -47,7 +47,7 @@ A GitHub Actions workflow for automating pipeline compilation and upload. On eve
 
 You can extend it to upload the compiled pipeline to a Kubeflow endpoint using the KFP client.
 
-### README.md
+### The README.md file
 
 This file. Explains the project, structure, and usage instructions.
 
